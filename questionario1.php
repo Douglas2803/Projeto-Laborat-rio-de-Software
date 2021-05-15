@@ -1,3 +1,8 @@
+<?php
+include("banco/rotinas.php"); 
+$rotinas = new rotinas();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php require 'header.php';?>
@@ -12,55 +17,41 @@
             </div>
         </div>
      </div>    
+
     <div class="row">
         <div class="container">
-          1 - discordo  7-concordo
-        </div>
-    </div>
-    <div class="row">
-    <div class="container">
-        <form>
-        <div class="row mt-2">   
-            <label for="">Exemplo da pergunta</label>
-        </div>
-        <div class="row">
-            <?php
-            $alterntiva = 0;
-            for($i = 0; $i <= 6; $i++){
-              $alterntiva++;          
-            ?>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio"> <?php echo $alterntiva; ?>
-                    </label>
+        <?php 
+        $perguntas=$rotinas->selecionar_where("perguntas","pergunta","id_questionario",1);
+        $alternativas=$rotinas->selecionar("alternativas","*","","");
+        ?>
+            <form method="POST" action="gravar_questionario.php">
+            <div class="form-group">
+                <?php
+                    while($linha = mysql_fetch_assoc($perguntas)){
+                ?>
+                <label><?php echo utf8_encode($linha['pergunta']); ?> </label><br>
+                <div class="row">
+                    <?php
+                        while($linha = mysql_fetch_assoc($alternativas)){         
+                    ?>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pergunta" /> 
+                                    <?php echo $linha['descricao']; ?>
+                        </label><br>
+                    </div>
+                <?php
+                } // fecha alternativas
+                ?>
                 </div>
-            <?php
-            }
-            ?>
+                <?php
+                    } //fecha perguntas
+                ?>
+            </div> 
+            <button type="submit" class="btn btn-primary">Responder</button>       
+          
+            </form>
         </div>
-        <div class="row mt-2">   
-            <label for="">Exemplo da pergunta</label>
-        </div>
-        <div class="row">
-            <?php
-            $alterntiva = 0;
-            for($i = 0; $i <= 6; $i++){
-              $alterntiva++;          
-            ?>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio2"> <?php echo $alterntiva; ?>
-                    </label>
-                </div>
-            <?php
-            }
-            ?>
-        </div>  
-        <div class="row mt-2">  
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        </div>
-        </form>
-    </div>
     </div>
     
 </body>
