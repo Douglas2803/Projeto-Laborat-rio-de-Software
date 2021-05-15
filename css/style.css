@@ -1,0 +1,14 @@
+.topo{
+  height: 50px; 
+  background-color: #02023a; 
+  color: #fff;
+}
+
+.rodape{
+   background-color: #02023a; 
+   height: 150px; 
+   color: #fff;
+}
+li{
+  list-style: none;
+}
