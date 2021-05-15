@@ -4,7 +4,7 @@ abstract class banco{
 	protected $servidor	='localhost';
 	protected $user		='root';
 	protected $senha	='';
-	protected $banco	='prezzi';
+	protected $banco	='projeto';
 	 
 	protected $conexao 	=null;
 	protected $selectdb	=null;
