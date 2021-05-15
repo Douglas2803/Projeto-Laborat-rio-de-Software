@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <body>
   
-<div class="container-fluid text-center topo" >
+<div class="container-fluid text-center header" >
     <h1>Laboratório de Software</h1>
 </div>
 
