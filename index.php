@@ -1,6 +1,5 @@
 <html>
 <?php require 'header.php';?>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
 <body>
   
 <div class="container-fluid text-center topo" >
@@ -10,7 +9,8 @@
 <div class="container mt-2">
     <div class="jumbotron">
     <p class="lead">
-    Texto do consentimento....
+    Estou ciente que minhas respostas neste questionário serão
+    utilizados para pesquisas por terceiros de forma anônima.
     </p>
     <hr class="my-4">
     <p>Continuação </p>
