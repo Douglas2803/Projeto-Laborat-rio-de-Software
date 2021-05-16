@@ -33,11 +33,13 @@ $rotinas = new rotinas();
                 <div class="row">
                     <?php
                         $alternativas=$rotinas->selecionar("alternativas","*","","");
-                        while($linha = mysql_fetch_assoc($alternativas)){         
+                        $i=0;
+                        while($linha = mysql_fetch_assoc($alternativas)){   
+                            $i++;      
                     ?>
                         <div class="form-check-inline ml-3">
                             <p class="form-check-label">
-                                <input type="radio" class="form-check-input" name="pergunta" /> 
+                                <input type="radio" class="form-check-input" name="pergunta<?{$i}?>" id="pergunta<?{$i}?>"  /> 
                                 <?php echo $linha['descricao']; ?>
                             </p>
                         </div>
