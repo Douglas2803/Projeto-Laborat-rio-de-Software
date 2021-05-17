@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Maio-2021 às 20:34
+-- Generation Time: 17-Maio-2021 às 23:14
 -- Versão do servidor: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -31,6 +31,19 @@ CREATE TABLE `alternativas` (
   `descricao` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `alternativas`
+--
+
+INSERT INTO `alternativas` (`id_alternativas`, `descricao`) VALUES
+(1, '1'),
+(2, '2'),
+(3, '3'),
+(4, '4'),
+(5, '5'),
+(6, '6'),
+(7, '7');
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +68,32 @@ CREATE TABLE `perguntas` (
   `id_tipo` int(11) NOT NULL,
   `pergunta` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `perguntas`
+--
+
+INSERT INTO `perguntas` (`id_pergunta`, `id_questionario`, `id_tipo`, `pergunta`) VALUES
+(1, 1, 1, '1- Eu estou satisfeito de viver em Caxias do Sul.'),
+(2, 1, 1, '2- Eu estou satisfeito com a vida que levo'),
+(3, 1, 1, '3- Eu estou satisfeito com o lugar em que moro.\r\n'),
+(4, 1, 1, ' 4- Eu estou satisfeito com o sistema de Saúde de Caxias do Sul  \r\n(Infraestrutura/Atendimento).'),
+(5, 1, 1, '5- Eu pratico alguma atividade física com frequência.'),
+(6, 1, 1, '6- Eu caminho pela cidade com frequência.'),
+(7, 1, 1, '7- Eu me sinto integrado à cidade de Caxias do Sul.'),
+(8, 1, 1, '8- Eu estou satisfeito com a minha atual situação de trabalho.'),
+(9, 1, 1, '9- Eu estou satisfeito com a situação financeira das pessoas que vivem comigo.'),
+(10, 1, 1, '10- Eu estou satisfeito com o comércio existente nas proximidades de onde moro.'),
+(11, 2, 1, '1- No geral, os serviços de ônibus/lotação da Cidade de Caxias do Sul são satisfatórios.'),
+(12, 2, 1, '2- A frequência dos ônibus/lotações de Caxias do Sul é adequada às minhas necessidades.\r\n'),
+(13, 2, 1, '3- Os ônibus/lotações são pontuais.'),
+(14, 2, 1, '4- É possível realizar mais de uma viagem pagando apenas uma tarifa por meio da passagem integrada.\r\n'),
+(15, 2, 1, '5- O valor das tarifas de ônibus/lotação é acessível.'),
+(16, 2, 1, '6- Eu me sinto seguro nos terminais e nas paradas de ônibus/lotação de Caxias do Sul.\r\n'),
+(17, 2, 1, '7- Eu me sinto seguro dentro dos ônibus/lotações de Caxias do Sul.'),
+(18, 2, 1, '8- Os ônibus/lotações de Caxias do Sul são confortáveis.'),
+(19, 2, 1, '9- Os terminais e paradas de ônibus/lotações de Caxias do Sul são confortáveis.'),
+(20, 2, 1, '10- É fácil obter informações a respeito dos serviços de ônibus em Caxias do Sul.');
 
 -- --------------------------------------------------------
 
@@ -156,7 +195,7 @@ ALTER TABLE `tipos_perguntas`
 -- AUTO_INCREMENT for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `id_alternativas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alternativas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `alternativas_respostas`
 --
@@ -166,7 +205,7 @@ ALTER TABLE `alternativas_respostas`
 -- AUTO_INCREMENT for table `perguntas`
 --
 ALTER TABLE `perguntas`
-  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `questionarios`
 --
