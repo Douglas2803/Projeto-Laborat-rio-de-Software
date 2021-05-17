@@ -10,10 +10,10 @@ $rotinas = new rotinas();
     <div class="container header">
         <div class="row">
             <div class="col-10">
-                <h1>Questionario 2 - (ta mostrando perguntas do 1)</h1>
+                <h2>AVALIAÇÃO DA PERCEPÇÃO DA MOBILIDADE NAS CIDADES</h2>
             </div>
             <div class="col-2 mt-2">
-                <a href="questionarios.php"><button class="btn btn-primary btn-sm">Voltar</button></a>
+                <a href="index.php"><button class="btn btn-primary btn-sm">Voltar</button></a>
             </div>
         </div>
      </div>    
@@ -21,7 +21,7 @@ $rotinas = new rotinas();
     <div class="row">
         <div class="container">
         <?php 
-        $perguntas=$rotinas->selecionar_where("perguntas","pergunta","id_questionario",1);
+        $perguntas=$rotinas->selecionar_where("perguntas","pergunta","id_questionario",2);
        
         ?>
             <form method="POST" action="gravar_questionario.php">
