@@ -16,8 +16,23 @@ $rotinas = new rotinas();
                 <a href="index.php"><button class="btn btn-primary btn-sm">Voltar</button></a>
             </div>
         </div>
-     </div>    
+    </div>    
+    <div class="container">
+        <p class='text-justify'>
+        Estamos realizando uma pesquisa de satisfação na cidade de CAXIAS DO SUL, para a
+         qual estamos solicitando a sua participação. Sua  opinião é muito importante a
+         fim de identificarmos o que os cidadãos esperam dos usos e serviços públicos da 
+         cidade. Além disso, cabe  destacar, também, que a presente pesquisa faz parte 
+         de um estudo acadêmico e será utilizada como instrumento de investigação para a  
+        disciplina de Estágio em Arquitetura e Urbanismo na Universidade de Caxias do Sul. 
+        A partir de sua experiência como usuário urbano, por  favor, responda este questionário 
+        pensando em um serviço ou infraestrutura capaz de lhe atender com um nível de qualidade 
+        satisfatório. Por  razões éticas inerentes à pesquisa, as respostas serão confidenciais, 
+        preservando o anonimato dos respondentes. Agradecemos a  disponibilidade! 
 
+        </p>    
+    </div>
+    
     <div class="row">
         <div class="container">
         <?php 

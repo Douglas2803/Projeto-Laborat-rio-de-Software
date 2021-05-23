@@ -17,7 +17,16 @@ $rotinas = new rotinas();
             </div>
         </div>
      </div>    
-
+     <div class="container">
+            <p class='text-justify'>
+        Estamos realizando uma pesquisa de satisfação na Cidade de Caxias do Sul, para a qual 
+        solicitamos a sua participação. Sua opinião é muito impoidentificarmos o que os cidadãos 
+        percebem dos usos e serviços de mobilidade da região. A partir da sua experiência como 
+        cidadão, por favor, rquestionário indicando o seu grau de concordância com as informações 
+        seguir, em uma escala de 1. Discordo totalmente a 7. Concordo totalmeAgradecemos a sua 
+        disponibilidade.
+        </p>    
+    </div>
     <div class="row">
         <div class="container">
         <?php 
