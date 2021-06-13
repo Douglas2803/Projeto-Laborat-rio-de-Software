@@ -85,7 +85,7 @@ VALUES (NULL, '1', '1', '24 - É fácil encontrar uma boa habitação por um pre
 Sul.');
 
 INSERT INTO `perguntas` (`id_pergunta`, `id_questionario`, `id_tipo`, `pergunta`) 
-VALUES (NULL, '2', '1', '25 - Eu estou satisfeito com a limpeza de Caxias do Sul.');
+VALUES (NULL, '1', '1', '25 - Eu estou satisfeito com a limpeza de Caxias do Sul.');
 
 INSERT INTO `perguntas` (`id_pergunta`, `id_questionario`, `id_tipo`, `pergunta`) 
 VALUES (NULL, '1', '1', '26 - Os serviços de coleta e tratamento de lixo atendem seu bairro de forma 
