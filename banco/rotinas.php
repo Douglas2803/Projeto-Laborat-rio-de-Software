@@ -167,7 +167,7 @@ class rotinas extends banco{
 			
 		$query = "SELECT $this->SELECIONA_colunas_where FROM $this->SELECIONA_tabelas_where   where   $this->SELECIONA_campo_where = $this->SELECIONA_id_where ";
 		
-		//print_r($query);
+		// print_r($query);
 
 		$queryExec	= mysql_query($query)or die(mysql_error());
 		
@@ -411,65 +411,48 @@ class rotinas extends banco{
 				
 		echo "$diasemana";
 	}
-
-
-	function ganho_estimado(){
-			
-		$query = "
-				SELECT SUM(Tt_Ganho) As ganho_estimado
-				FROM (
-				SELECT SUM(((val_saida_parcial - Valor_unitario) * saida_parcial)) AS Tt_Ganho
-				FROM oper
-				WHERE dt_saida_parcial IS NULL AND id_usuario = ". $_SESSION['id']."
-				UNION
-				SELECT SUM(((val_saida_final- Valor_unitario) * saida_final))
-				FROM oper
-				WHERE dt_saida_final IS NULL AND id_usuario = ". $_SESSION['id']."
-				) AS Tabela1
-				";
-					
-				$queryExec	= mysql_query($query)or die(mysql_error());
-				
-				return   $queryExec;
+	
+	/***************QUESTIONARIO 1 ******************/
+	/***LISTA 1 A 10******/
+	function seleciona_1_10_1(){
+		$query = "SELECT * FROM perguntas LIMIT 10 OFFSET 0";
+		$queryExec	= mysql_query($query)or die(mysql_error());
+		return   $queryExec;
 	}
 
-	function perda_estimada(){
-			
-		$query = "
-				SELECT SUM(Tt_Perda) As perda_estimada
-				FROM (
-				SELECT SUM(((valor_unitario - stop_loss) * saida_parcial)) AS Tt_Perda
-				FROM oper
-				WHERE dt_saida_parcial IS NULL AND id_usuario = ". $_SESSION['id']."
-				UNION
-				SELECT SUM(((valor_unitario- stop_loss) * saida_final))
-				FROM oper
-				WHERE dt_saida_final IS NULL AND id_usuario = ". $_SESSION['id']."
-					) AS Tabela1
-				";
-					
-				$queryExec	= mysql_query($query)or die(mysql_error());
-				
-				return   $queryExec;
+	function seleciona_11_20_1(){
+		$query = "SELECT * FROM perguntas LIMIT 10 OFFSET 10";
+		$queryExec	= mysql_query($query)or die(mysql_error());
+		return   $queryExec;
 	}
 
+	function seleciona_21_30_1(){
+		$query = "SELECT * FROM perguntas LIMIT 10 OFFSET 20";
+		$queryExec	= mysql_query($query)or die(mysql_error());
+		return   $queryExec;
+	}
+
+	function seleciona_31_40_1(){
+		$query = "SELECT * FROM perguntas LIMIT 10 OFFSET 30";
+		$queryExec	= mysql_query($query)or die(mysql_error());
+		return   $queryExec;
+	}
+
+	function seleciona_41_50_1(){
+		$query = "SELECT * FROM perguntas LIMIT 10 OFFSET 40";
+		$queryExec	= mysql_query($query)or die(mysql_error());
+		return   $queryExec;
+	}
+
+	/***************FIM QUESTIONARIO 1 ******************/
 
 
-	function lucro_total(){
+	function seleciona_alternat($id_pergunta){
 			
 		$query = "
-				SELECT SUM(tt_LUCRO) AS lucro_total
-				FROM (
-				SELECT 'P',
-		    	SUM((valor_parcial_vendido - valor_unitario) * saida_parcial) AS TT_Lucro    FROM OPER
-				WHERE dt_saida_parcial IS NOT NULL  AND id_usuario = ". $_SESSION['id']." 
-				UNION
-				SELECT 'F',
-				SUM((valor_final_vendido - valor_unitario) * saida_final) AS TT_Lucro  FROM OPER
-				WHERE dt_saida_final IS NOT NULL AND id_usuario = ". $_SESSION['id']."
-				)AS Tabela1 
-				
-				";
+		SELECT * FROM perguntas_alternativas as perg_alter, alternativas as alternat 
+		WHERE perg_alter.id_alternativa = alternat.id_alternativa AND
+		perg_alter.id_pergunta = ".$id_pergunta;
 				
 				
 		
@@ -478,48 +461,7 @@ class rotinas extends banco{
 			return   $queryExec;
 	}
 
-	function ordens_executadas(){
-			
-		$query = "
-			SELECT sum(valor_total) as valor_total FROM  oper 
-			where dt_saida_final IS NOT NULL AND id_usuario = ". $_SESSION['id']."
-		
-			";
-					
-			$queryExec	= mysql_query($query)or die(mysql_error());
-				
-			return   $queryExec;
-	}
-
-	function ordens_abertas(){
-			
-		$query = "
-		SELECT sum(valor_total) as ordens_abertas FROM  oper 
-		where (dt_saida_final IS NULL OR dt_saida_final IS NULL) AND id_usuario = ". $_SESSION['id']."
-			";
-					
-			$queryExec	= mysql_query($query)or die(mysql_error());
-				
-			return   $queryExec;
-	}
-
-	function posso_perder(){
-			
-		$query = "
-			SELECT SUM(soma1) as posso_perder from (
-
-			SELECT sum(saida_parcial * (valor_unitario - stop_loss)) as soma1 FROM  oper 
-			where dt_saida_parcial IS NULL AND id_usuario = ". $_SESSION['id']."
-			UNION      
-			SELECT sum(saida_final * (valor_unitario - stop_loss)) as soma1 FROM  oper 
-			where dt_saida_final IS NULL AND id_usuario = ". $_SESSION['id']."
-			) as tabela1
-			";
-					
-			$queryExec	= mysql_query($query)or die(mysql_error());
-				
-			return   $queryExec;
-	}
+	
 }	
 
 ?>
