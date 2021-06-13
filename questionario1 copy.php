@@ -32,9 +32,46 @@ $rotinas = new rotinas();
 
         </p>    
     </div>
-    
-    <div class="row">
-        <div class="container">
+        
+<div class="container"><h1>Questões</h1></div>
+
+    <div id="exTab1" class="container">	
+
+        <ul  class="nav nav-pills">
+			<li class="active">
+            <a  href="#1a" data-toggle="tab">1-20</a>
+			</li>
+			<li><a href="#2a" data-toggle="tab">21-30</a>
+			</li>
+			<li><a href="#3a" data-toggle="tab">31-40</a>
+			</li>
+  		<li><a href="#4a" data-toggle="tab">41-60</a>
+			</li>
+		</ul>
+
+		<div class="tab-content clearfix">
+		    <div class="tab-pane active" id="1a">
+                <p></P> // vai questões de 1-20
+		    </div>
+		    <div class="tab-pane" id="2a">
+                <p></P> // vai questões de
+			</div>
+            <div class="tab-pane" id="3a">
+                <p></P> // vai questões de
+			</div>
+            <div class="tab-pane" id="4a">
+                <p></P> // vai questões de
+		    </div>
+        </div>
+
+	</div>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <?php 
         $perguntas=$rotinas->selecionar_where("perguntas","*","id_questionario",1);
        
