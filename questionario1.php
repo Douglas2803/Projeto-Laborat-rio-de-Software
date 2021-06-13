@@ -33,36 +33,164 @@ $rotinas = new rotinas();
         </p>    
     </div>
     
-    <div class="row">
-    <div id="exTab1" class="container">	
-<ul  class="nav nav-pills">
-			<li class="active">
-        <a  href="#1a" data-toggle="tab">1 - 10</a>
-			</li>
-			<li><a href="#2a" data-toggle="tab">11 -20</a>
-			</li>
-			<li><a href="#3a" data-toggle="tab">Applying clearfix</a>
-			</li>
-  		<li><a href="#4a" data-toggle="tab">Background color</a>
-			</li>
-		</ul>
+<div class="row">
+    <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab1" role="tab">1-10</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab2" role="tab">11-20</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab3" role="tab">21-30</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab4" role="tab">31-40</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab5" role="tab">41-50</a>
+            </li>
+        </ul>
 
-			<div class="tab-content clearfix">
-			  <div class="tab-pane active" id="1a">
-          loop das perguntas de 1 10
-				</div>
-				<div class="tab-pane" id="2a">
-        loop das perguntas de 11 a 20
-				</div>
-        <div class="tab-pane" id="3a">
-          <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-				</div>
-          <div class="tab-pane" id="4a">
-          <h3>We use css to change the background color of the content to be equal to the tab</h3>
-				</div>
-			</div>
-  </div>
-    </div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane" id="tab1" role="tabpanel">
+                <?php 
+                    $perguntas=$rotinas->seleciona_1_10_1();
+                    while($linha = mysql_fetch_assoc($perguntas)){
+                        $id_pergunta = $linha['id_pergunta'];
+                    // echo $id_pergunta;
+                ?>
+                    <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <?php
+                    $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
+                    while($linha1 = mysql_fetch_assoc($alternativas)){   
+                        $id_alternativa = $linha1['id_alternativa'] ; 
+                ?>
+                <div class="form-check-inline ml-3">
+                    <p class="form-check-label">
+                        <input type="radio" class="form-check-input" name="alternativa-<?php echo $id_pergunta; ?>" 
+                        id="alternativa-<?php echo $id_pergunta; ?>-<?php echo $id_alternativa?>"  /> 
+                        <?php echo utf8_encode($linha1['descricao']); ?>
+                    </p>
+                </div>
+                <?php
+                }
+                ?>
+            <?php
+                }
+            ?>
+        </div> <!-- FIM DA TAB 1 -->
+
+        <div class="tab-pane" id="tab2" role="tabpanel">
+            <?php 
+                $perguntas=$rotinas->seleciona_11_20_1();
+                while($linha = mysql_fetch_assoc($perguntas)){
+                    $id_pergunta = $linha['id_pergunta'];
+            ?>
+                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <?php
+                    $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
+                    while($linha1 = mysql_fetch_assoc($alternativas)){   
+                        $id_alternativa = $linha1['id_alternativa'] ; 
+                ?>
+                <div class="form-check-inline ml-3">
+                    <p class="form-check-label">
+                        <input type="radio" class="form-check-input" name="alternativa-<?php echo $id_pergunta; ?>" 
+                        id="alternativa-<?php echo $id_pergunta; ?>-<?php echo $id_alternativa?>"  /> 
+                        <?php echo utf8_encode($linha1['descricao']); ?>
+                    </p>
+                </div>
+                <?php
+                }
+                ?>
+            <?php
+                }
+            ?>
+        </div><!-- FIM DA TAB 2 -->
+        <div class="tab-pane" id="tab3" role="tabpanel">
+            <?php 
+                $perguntas=$rotinas->seleciona_21_30_1();
+                while($linha = mysql_fetch_assoc($perguntas)){
+                    $id_pergunta = $linha['id_pergunta'];
+            ?>
+                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <?php
+                    $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
+                    while($linha1 = mysql_fetch_assoc($alternativas)){   
+                        $id_alternativa = $linha1['id_alternativa'] ; 
+                ?>
+                <div class="form-check-inline ml-3">
+                    <p class="form-check-label">
+                        <input type="radio" class="form-check-input" name="alternativa-<?php echo $id_pergunta; ?>" 
+                        id="alternativa-<?php echo $id_pergunta; ?>-<?php echo $id_alternativa?>"  /> 
+                        <?php echo utf8_encode($linha1['descricao']); ?>
+                    </p>
+                </div>
+                <?php
+                }
+                ?>
+            <?php
+                }
+            ?>
+        </div> <!-- FIM DA TAB 3 -->
+        <div class="tab-pane" id="tab4" role="tabpanel">
+            <?php 
+                $perguntas=$rotinas->seleciona_31_40_1();
+                while($linha = mysql_fetch_assoc($perguntas)){
+                    $id_pergunta = $linha['id_pergunta'];
+            ?>
+                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <?php
+                    $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
+                    while($linha1 = mysql_fetch_assoc($alternativas)){   
+                        $id_alternativa = $linha1['id_alternativa'] ; 
+                ?>
+                <div class="form-check-inline ml-3">
+                    <p class="form-check-label">
+                        <input type="radio" class="form-check-input" name="alternativa-<?php echo $id_pergunta; ?>" 
+                        id="alternativa-<?php echo $id_pergunta; ?>-<?php echo $id_alternativa?>"  /> 
+                        <?php echo utf8_encode($linha1['descricao']); ?>
+                    </p>
+                </div>
+                <?php
+                }
+                ?>
+            <?php
+                }
+            ?>
+        </div> <!-- FIM DA TAB 4 -->
+        <div class="tab-pane" id="tab5" role="tabpanel">
+            <?php 
+                $perguntas=$rotinas->seleciona_41_50_1();
+                while($linha = mysql_fetch_assoc($perguntas)){
+                    $id_pergunta = $linha['id_pergunta'];
+            ?>
+                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <?php
+                    $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
+                    while($linha1 = mysql_fetch_assoc($alternativas)){   
+                        $id_alternativa = $linha1['id_alternativa'] ; 
+                ?>
+                <div class="form-check-inline ml-3">
+                    <p class="form-check-label">
+                        <input type="radio" class="form-check-input" name="alternativa-<?php echo $id_pergunta; ?>" 
+                        id="alternativa-<?php echo $id_pergunta; ?>-<?php echo $id_alternativa?>"  /> 
+                        <?php echo utf8_encode($linha1['descricao']); ?>
+                    </p>
+                </div>
+                <?php
+                }
+                ?>
+            <?php
+                }
+            ?>
+        </div> <!-- FIM DA TAB 5-->
+    </div> <!-- FIM DO CONTAINER-->
+</div>  <!-- FIM DO ROW --> 
+
     
 </body>
 </html>
