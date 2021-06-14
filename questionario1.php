@@ -6,6 +6,15 @@ $rotinas = new rotinas();
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php require 'header.php';?>
+<style>
+.perguntas{
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+    font-weight: bold;
+    padding-left: 30px;
+}
+</style>
 <body>
     <div class="container header">
         <div class="row">
@@ -52,6 +61,9 @@ $rotinas = new rotinas();
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#tab5" role="tab">41-50</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab6" role="tab">51-60</a>
+            </li>
         </ul>
 
         <!-- Tab panes -->
@@ -61,10 +73,14 @@ $rotinas = new rotinas();
                     $perguntas=$rotinas->seleciona_1_10_1();
                     while($linha = mysql_fetch_assoc($perguntas)){
                         $id_pergunta = $linha['id_pergunta'];
+                        $id_tipo = $linha['id_tipo'];
+                       
                     // echo $id_pergunta;
                 ?>
-                    <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <p class="perguntas"><?php echo utf8_encode($linha['pergunta']); ?> </p>
                 <?php
+                if($id_tipo == 1){
+                    
                     $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
                     while($linha1 = mysql_fetch_assoc($alternativas)){   
                         $id_alternativa = $linha1['id_alternativa'] ; 
@@ -77,20 +93,31 @@ $rotinas = new rotinas();
                     </p>
                 </div>
                 <?php
+                } // fim while
+                    
+                } // fim if tipo
+                if($id_tipo == 2){
+                ?>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="idResposta" />
+                </div>
+                <?php    
                 }
                 ?>
-            <?php
-                }
-            ?>
-        </div> <!-- FIM DA TAB 1 -->
+
+                <?php
+                    }
+                ?>
+            </div> <!-- FIM DA TAB 1 -->
 
         <div class="tab-pane" id="tab2" role="tabpanel">
             <?php 
                 $perguntas=$rotinas->seleciona_11_20_1();
                 while($linha = mysql_fetch_assoc($perguntas)){
                     $id_pergunta = $linha['id_pergunta'];
+
             ?>
-                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <p class="perguntas"><?php echo utf8_encode($linha['pergunta']); ?> </p>
                 <?php
                     $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
                     while($linha1 = mysql_fetch_assoc($alternativas)){   
@@ -116,7 +143,7 @@ $rotinas = new rotinas();
                 while($linha = mysql_fetch_assoc($perguntas)){
                     $id_pergunta = $linha['id_pergunta'];
             ?>
-                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <p class="perguntas"><?php echo utf8_encode($linha['pergunta']); ?> </p>
                 <?php
                     $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
                     while($linha1 = mysql_fetch_assoc($alternativas)){   
@@ -142,7 +169,7 @@ $rotinas = new rotinas();
                 while($linha = mysql_fetch_assoc($perguntas)){
                     $id_pergunta = $linha['id_pergunta'];
             ?>
-                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <p class="perguntas"><?php echo utf8_encode($linha['pergunta']); ?> </p>
                 <?php
                     $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
                     while($linha1 = mysql_fetch_assoc($alternativas)){   
@@ -168,8 +195,9 @@ $rotinas = new rotinas();
                 while($linha = mysql_fetch_assoc($perguntas)){
                     $id_pergunta = $linha['id_pergunta'];
             ?>
-                <p><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <p class="perguntas"><?php echo utf8_encode($linha['pergunta']); ?> </p>
                 <?php
+
                     $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
                     while($linha1 = mysql_fetch_assoc($alternativas)){   
                         $id_alternativa = $linha1['id_alternativa'] ; 
@@ -188,6 +216,47 @@ $rotinas = new rotinas();
                 }
             ?>
         </div> <!-- FIM DA TAB 5-->
+        <div class="tab-pane" id="tab6" role="tabpanel">
+                <?php 
+                    $perguntas=$rotinas->seleciona_51_60_1();
+                    while($linha = mysql_fetch_assoc($perguntas)){
+                        $id_pergunta = $linha['id_pergunta'];
+                        $id_tipo = $linha['id_tipo'];
+                       
+                    // echo $id_pergunta;
+                ?>
+                <p class="perguntas"><?php echo utf8_encode($linha['pergunta']); ?> </p>
+                <?php
+                if($id_tipo == 1){
+                    
+                    $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
+                    while($linha1 = mysql_fetch_assoc($alternativas)){   
+                        $id_alternativa = $linha1['id_alternativa'] ; 
+                ?>
+                <div class="form-check-inline ml-3">
+                    <p class="form-check-label">
+                        <input type="radio" class="form-check-input" name="alternativa-<?php echo $id_pergunta; ?>" 
+                        id="alternativa-<?php echo $id_pergunta; ?>-<?php echo $id_alternativa?>"  /> 
+                        <?php echo utf8_encode($linha1['descricao']); ?>
+                    </p>
+                </div>
+                <?php
+                } // fim while
+                    
+                } // fim if tipo
+                if($id_tipo == 2){
+                ?>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="idResposta" />
+                </div>
+                <?php    
+                }
+                ?>
+
+                <?php
+                    }
+                ?>
+            </div> <!-- FIM DA TAB 6 -->
     </div> <!-- FIM DO CONTAINER-->
 </div>  <!-- FIM DO ROW --> 
 

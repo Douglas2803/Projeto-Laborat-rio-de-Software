@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Jun-2021 às 18:07
+-- Generation Time: 14-Jun-2021 às 02:28
 -- Versão do servidor: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -47,7 +47,41 @@ INSERT INTO `alternativas` (`id_alternativa`, `descricao`) VALUES
 (9, 'Não'),
 (10, 'Masculino'),
 (11, 'Feminino'),
-(12, 'Outro');
+(12, 'Outro'),
+(13, 'Nenhum'),
+(14, 'Ensino Fundamental'),
+(15, 'Ensino Médio'),
+(16, 'Graduação Incompleta'),
+(17, 'Graduação'),
+(18, 'Pós Graduação'),
+(19, 'Assalariado'),
+(20, 'Não assalariado'),
+(21, 'Do lar'),
+(22, 'Aposentado ou pensionista'),
+(23, 'Autônomo ou liberal'),
+(24, 'Sócio ou dirigente'),
+(25, 'Funcionário Público'),
+(26, 'Rendimento de aplicações ou aluguel'),
+(27, 'Somente uma pessoa'),
+(28, 'Duas pessoas contribuem'),
+(29, 'Três pessoas contribuem'),
+(30, 'Quatro pessoas contribuem'),
+(31, 'Mais do que quatro pessoas contribuem'),
+(32, 'Até 1 salário mínimo - R$954,00'),
+(33, 'De 1 a 3 salários mínimos - R$954,00 a R$2862,00)'),
+(34, 'De 3 a 5 salários mínimos - R$2862,00 a R$4770,00'),
+(35, 'De 5 a 15 salários mínimos - R$4770,00 a R$14310,00'),
+(36, 'Acima de 15 salários mínimos - R$14310,00'),
+(37, 'Até 1 ano'),
+(38, 'De 1 a 5 anos'),
+(39, 'De 5 a 10 anos'),
+(40, 'Mais de 10 anos'),
+(41, 'Transporte coletivo'),
+(42, 'Transporte individual - Carro'),
+(43, 'Transporte individual - Motocicleta'),
+(44, 'Bicicleta'),
+(45, 'Anda geralmente a pé'),
+(46, 'Outro');
 
 -- --------------------------------------------------------
 
@@ -126,7 +160,7 @@ INSERT INTO `perguntas` (`id_pergunta`, `id_questionario`, `id_tipo`, `pergunta`
 (57, 1, 2, '57 - Onde você mora? (bairro ou ponto de referência)'),
 (58, 1, 1, '58 - Qual seu tempo de residência no local informado? '),
 (59, 1, 2, '59 - Quantos veículos possuem na sua residência?'),
-(60, 1, 1, '60) Qual o meio de transporte que você mais utiliza?');
+(60, 1, 1, '60 - Qual o meio de transporte que você mais utiliza?');
 
 -- --------------------------------------------------------
 
@@ -490,7 +524,41 @@ INSERT INTO `perguntas_alternativas` (`id_alt_resp`, `id_pergunta`, `id_alternat
 (343, 49, 7),
 (344, 50, 10),
 (345, 50, 11),
-(346, 50, 12);
+(346, 50, 12),
+(347, 52, 13),
+(348, 52, 14),
+(349, 52, 15),
+(350, 52, 16),
+(351, 52, 17),
+(352, 52, 18),
+(353, 53, 19),
+(354, 53, 20),
+(355, 53, 21),
+(356, 53, 22),
+(357, 53, 23),
+(358, 53, 24),
+(359, 53, 25),
+(360, 53, 26),
+(361, 55, 27),
+(362, 55, 28),
+(363, 55, 29),
+(364, 55, 30),
+(365, 55, 31),
+(366, 56, 32),
+(367, 56, 33),
+(368, 56, 34),
+(369, 56, 35),
+(370, 56, 36),
+(371, 58, 37),
+(372, 58, 38),
+(373, 58, 39),
+(374, 58, 40),
+(375, 60, 41),
+(376, 60, 42),
+(377, 60, 43),
+(378, 60, 44),
+(379, 60, 45),
+(380, 60, 46);
 
 -- --------------------------------------------------------
 
@@ -601,7 +669,7 @@ ALTER TABLE `tipos_perguntas`
 -- AUTO_INCREMENT for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `id_alternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_alternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `perguntas`
 --
@@ -611,7 +679,7 @@ ALTER TABLE `perguntas`
 -- AUTO_INCREMENT for table `perguntas_alternativas`
 --
 ALTER TABLE `perguntas_alternativas`
-  MODIFY `id_alt_resp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=347;
+  MODIFY `id_alt_resp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
 --
 -- AUTO_INCREMENT for table `questionarios`
 --
