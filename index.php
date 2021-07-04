@@ -7,6 +7,14 @@
     <h1>Laboratório de Software</h1>
 </div>
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+  <img src="imagens/mobilidade.png" class="rounded float-left imagem" alt="...">
+    <h1 class="display-4">Pesquisa de satisfação de qualidade de vida</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
 <div class="container mt-1 cartas">
     <div class="row">
         <div class="col-6">
