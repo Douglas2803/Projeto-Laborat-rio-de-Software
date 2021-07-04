@@ -1,13 +1,24 @@
 .header{
-  height: 50px; 
-  background-color: #02023a; 
+  padding:45px;
+ /* background-color:rgba(4, 22, 105, 0.3); */
+ background-image:url(../imagens/grey-background-07.jpg);
   color: #fff;
+  
 }
 
 .rodape{
-   background-color: #02023a; 
-   height: 150px; 
+   /* background-color:rgba(4, 22, 105, 0.3); */
+   padding: 30px;
+   background-image:url(../imagens/grey-background-07.jpg);
    color: #fff;
+}
+
+.cartas{
+padding-top:70px;
+padding-bottom: 70px;
+}
+.imagem{
+  width: 200px;
 }
 li{
   list-style: none;
