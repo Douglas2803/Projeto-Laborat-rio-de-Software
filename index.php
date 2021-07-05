@@ -1,5 +1,5 @@
 <html>
-<?php require 'head.php';?>
+<?php require 'header.php';?>
 
 <body>
   
@@ -7,13 +7,6 @@
     <h1>Laboratório de Software</h1>
 </div>
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-  <img src="imagens/mobilidade.png" class="rounded float-left imagem" alt="...">
-    <h1 class="display-4">Pesquisa de satisfação de qualidade de vida</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div>
-</div>
 
 <div class="container mt-1 cartas">
     <div class="row">
@@ -24,7 +17,7 @@
                     <h6 class="card-title">SATISFAÇÃO E QUALIDADE DE VIDA NAS CIDADES</h6>
                     <p class="card-text text-justify ">Estamos realizando uma pesquisa de satisfação na cidade de CAXIAS DO SUL, para a qual estamos solicitando a sua participação. Sua
                     opinião é muito importante a fim de identificarmos o que os cidadãos esperam dos usos e serviços públicos da cidade.</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#questionario1">Respoder</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#questionario1">Responder</button>
                 </div>
             </div>
         </div>
@@ -36,7 +29,7 @@
                     <h6 class="card-title">AVALIAÇÃO DA PERCEPÇÃO DA MOBILIDADE NAS CIDADES</h6>
                     <p class="card-text text-justify">Estamos realizando uma pesquisa de satisfação na Cidade de Caxias do Sul, para a qual solicitamos a sua participação. Sua opinião é muito importante a fim de
                     identificarmos o que os cidadãos percebem dos usos e serviços de mobilidade da região.</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#questionario2">Respoder</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#questionario2">Responder</button>
                 </div>
             </div>
         </div>
@@ -44,8 +37,13 @@
     </div>
 </div>
 
+<div class="container">
+    <a href="exportar.php"><button class="btn btn-danger">EXPORTAR</button></a>
+    
+</div>
+
 <div class="container-fluid text-center rodape mt-2" >
-    <h6>Desenvolvido pelo grupo 1 de Laboratório de software</h6>
+    <h6>Desenvolvido pelo Grupo 1 de Laboratório de Software</h6>
 </div>
 
 <div class="modal fade" id="questionario1">
