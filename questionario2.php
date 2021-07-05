@@ -10,7 +10,7 @@ $rotinas = new rotinas();
 .perguntas{
     width: 100%;
     color: #fff;
-    background-color: #000;
+    background-color: #848484;
     font-weight: bold;
     padding-left: 30px;
 }
@@ -43,7 +43,17 @@ $rotinas = new rotinas();
         pensando em um serviço ou infraestrutura capaz de lhe atender com um nível de qualidade 
         satisfatório. Por  razões éticas inerentes à pesquisa, as respostas serão confidenciais, 
         preservando o anonimato dos respondentes. Agradecemos a  disponibilidade! 
-        </p>    
+        </p>   
+        <table class="table">
+            <tr>
+                <td>
+                1- Discordo Totalmente
+                </td>
+                <td>
+                7- Concordo Totalmente
+                </td>
+            </tr>
+        </table> 
     </div>
     
 <div class="row">
@@ -147,87 +157,10 @@ $rotinas = new rotinas();
                     <?php
                         }
                     ?>
-                     
+                      <button class="btn btn-success" onclick="dados()" type="submit">GRAVAR</button>
                 </div>
                 <!-- FIM DA TAB 1 -->
 
-                <!-- TAB 2 -->
-                <div class="tab-pane" id="tab2" role="tabpanel">
-                    <?php 
-                        $perguntas=$rotinas->seleciona_perguntas_pagina(10,2);
-                        while($linha = mysql_fetch_assoc($perguntas)){
-                            $id_pergunta = $linha['id_pergunta'];
-                            $id_tipo = $linha['id_tipo'];
-                            // echo $id_pergunta;
-                    ?>
-                    <script>
-                        valores.push(<?php echo $id_pergunta; ?>)
-                        
-                    </script>
-                    <p class="perguntas"><?php echo utf8_encode($linha['pergunta']); ?> </p>
-                    <?php
-                    if($id_tipo == 1){
-                        
-                        $alternativas=$rotinas->seleciona_alternat($id_pergunta);                
-                        while($linha1 = mysql_fetch_assoc($alternativas)){   
-                            $id_alternativa = $linha1['id_alternativa'] ; 
-                        
-                    ?>
-                        <div class="form-check-inline ml-3">
-                            <p class="form-check-label">
-                                <input type="radio" class="form-check-input" 
-                                name="pergunta_<?php echo $id_pergunta; ?>" 
-                                id="alternativa_<?php echo $id_pergunta; ?>_<?php echo $id_alternativa?>" 
-                                value="selecionada_<?php echo $id_pergunta; ?>_<?php echo $id_alternativa?>" /> 
-                                <?php echo utf8_encode($linha1['descricao']); ?>
-                            </p>
-                        </div>
-                    <script>
-                        $('#alternativa_<?php echo $id_pergunta; ?>_<?php echo $id_alternativa?>').change(function() {
-                           
-                            var currentId = $(this).attr('id');
-                            var result = currentId.split('_');
-                            var pergunta = result[1];
-                            var alternativa = result[2];
-
-                           
-
-                            $("#pergunta_selecionada_<?php echo $id_pergunta?>").val(pergunta);
-                            $("#alternativa_selecionada_<?php echo $id_pergunta?>").val(alternativa);
-                            
-                            //console.log(dados); 
-                        });
-                    </script>
-                    
-                    <?php
-                    } // fim while
-                      ?>
-                        <div class="form-group">
-                            <input type="hidden" class="form-control" 
-                            id="pergunta_selecionada_<?php echo $id_pergunta?>" 
-                            name="pergunta_selecionada_<?php echo $id_pergunta?>" />
-
-                            <input type="hidden" class="form-control" 
-                            id="alternativa_selecionada_<?php echo $id_pergunta?>" 
-                            name="alternativa_selecionada_<?php echo $id_pergunta?>" />
-                        </div>
-                      <?php  
-                    } // fim if tipo
-                    if($id_tipo == 2){
-                    ?>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="idResposta" name="resposta_isolada" />
-                    </div>
-                    <?php    
-                    }
-                    ?>
-                    
-                    <?php
-                        }
-                    ?>
-                      <button class="btn btn-success" onclick="dados()" type="submit">GRAVAR</button>
-                </div>
-                <!-- FIM DA TAB 2 -->
 
 
 
