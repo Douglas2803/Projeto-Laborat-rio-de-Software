@@ -37,10 +37,10 @@
     </div>
 </div>
 
-<div class="container">
+<!-- <div class="container">
     <a href="exportar.php"><button class="btn btn-danger">EXPORTAR</button></a>
     
-</div>
+</div> -->
 
 <div class="container-fluid text-center rodape mt-2" >
     <h6>Desenvolvido pelo Grupo 1 de Laboratório de Software</h6>

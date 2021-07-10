@@ -23,7 +23,7 @@ foreach($auxPerguntas as $aux){
    
     $alternativa  = $_POST['alternativa_selecionada_'.$aux];
 
-
+    //$resultado=$rotinas->inserir("respostas ","","NULL,$pergunta, $alternativa,'','$ip_'");
     
    if($tipo == 1){
     $resultado=$rotinas->inserir("respostas ","","NULL,$pergunta, $alternativa,'','$ip_'");
